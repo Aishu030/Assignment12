@@ -65,7 +65,7 @@ namespace Assignment12
                 List<string> emails = eValidation(inputText);
                 if (emails.Count > 0)
                 {
-                    Console.WriteLine("Email addresses found:");
+                    Console.WriteLine("****Email addresses found*****");
                     foreach (string email in emails)
                     {
                         Console.WriteLine(email);
@@ -73,7 +73,7 @@ namespace Assignment12
                 }
                 else
                 {
-                    Console.WriteLine("No email addresses found.");
+                    Console.WriteLine("No email addresses found!!!!!");
                 }
 
                 //mobile number extraction
@@ -88,7 +88,7 @@ namespace Assignment12
                 }
                 else
                 {
-                    Console.WriteLine("No mobile numbers found.");
+                    Console.WriteLine("No mobile numbers found!!!!");
                 }
 
                 //Custom Regex
@@ -97,7 +97,7 @@ namespace Assignment12
                 List<string> customMatches = CustomRegex(inputText, customRegex);
                 if (customMatches.Count > 0)
                 {
-                    Console.WriteLine("Custom regex matches:");
+                    Console.WriteLine("************Custom regex matches**************");
                     foreach (string match in customMatches)
                     {
                         Console.WriteLine(match);
@@ -106,7 +106,7 @@ namespace Assignment12
                 }
                 else
                 {
-                    Console.WriteLine("No matches found with the custom regex.");
+                    Console.WriteLine("No matches found !!!!!!");
                 }
             }
             catch (Exception e)
