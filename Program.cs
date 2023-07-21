@@ -8,6 +8,72 @@ namespace Assignment12
 {
     internal class Program
     {
+        static void Main(string[] args)
+        {
+
+
+
+            Console.WriteLine("Enter a piece of text:"); //user input
+            string inputText = Console.ReadLine();
+
+            // word count
+            int wCount = wordCount(inputText);
+            Console.WriteLine($"Word Count: {wCount}");
+
+            // email validation
+            List<string> emails = eValidation(inputText);
+            if (emails.Count > 0)
+            {
+                Console.WriteLine("****Email addresses found*****");
+                foreach (string email in emails)
+                {
+                    Console.WriteLine(email);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No email addresses found!!!!!");
+            }
+
+            //mobile number extraction
+            List<string> mobileNumbers = NumExtraction(inputText);
+            if (mobileNumbers.Count > 0)
+            {
+                Console.WriteLine("Mobile numbers found:");
+                foreach (string number in mobileNumbers)
+                {
+                    Console.WriteLine(number);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No mobile numbers found!!!!");
+            }
+
+            //Custom Regex
+            Console.WriteLine("Enter a custom regular expression:"); //prmpt user to input 
+            string customRegex = Console.ReadLine();
+            List<string> customMatches = CustomRegex(inputText, customRegex);
+            if (customMatches.Count > 0)
+            {
+                Console.WriteLine("************Custom regex matches**************");
+                foreach (string match in customMatches)
+                {
+                    Console.WriteLine(match);
+                }
+                Console.WriteLine("Press any key to exit");
+            }
+            else
+            {
+                Console.WriteLine("No matches found !!!!!!");
+            }
+
+
+            Console.ReadKey();
+        }
+
+
+
         static int wordCount(string input)
         {
             return Regex.Matches(input, @"[^\s]+").Count;
@@ -46,75 +112,9 @@ namespace Assignment12
                 matches.Add(match.Value);
             }
             return matches;
-         
+
         }
-
-        static void Main(string[] args)
-        {
-            try
-            {
-
-                Console.WriteLine("Enter a piece of text:"); //user input
-                string inputText = Console.ReadLine();
-
-                // word count
-                int wCount = wordCount(inputText);
-                Console.WriteLine($"Word Count: {wCount}");
-
-                // email validation
-                List<string> emails = eValidation(inputText);
-                if (emails.Count > 0)
-                {
-                    Console.WriteLine("****Email addresses found*****");
-                    foreach (string email in emails)
-                    {
-                        Console.WriteLine(email);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No email addresses found!!!!!");
-                }
-
-                //mobile number extraction
-                List<string> mobileNumbers = NumExtraction(inputText);
-                if (mobileNumbers.Count > 0)
-                {
-                    Console.WriteLine("Mobile numbers found:");
-                    foreach (string number in mobileNumbers)
-                    {
-                        Console.WriteLine(number);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No mobile numbers found!!!!");
-                }
-
-                //Custom Regex
-                Console.WriteLine("Enter a custom regular expression:"); //prmpt user to input 
-                string customRegex = Console.ReadLine();
-                List<string> customMatches = CustomRegex(inputText, customRegex);
-                if (customMatches.Count > 0)
-                {
-                    Console.WriteLine("************Custom regex matches**************");
-                    foreach (string match in customMatches)
-                    {
-                        Console.WriteLine(match);
-                    }
-                    Console.WriteLine("Press any key to exit");
-                }
-                else
-                {
-                    Console.WriteLine("No matches found !!!!!!");
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            Console.ReadKey();
-        }
-
     }
 }
+
+      
